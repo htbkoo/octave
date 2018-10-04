@@ -62,6 +62,7 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+
 a1 = [ones(m,1) X]; % a(1) = x adding a(1)0
 
 z2 = a1*Theta1';
@@ -80,8 +81,13 @@ end
 term1=-yk.*log(h);
 term2=(1-yk).*log(1-h);
 eachCost = term1-term2;
+predictionCost = 1/m * sum(sum(eachCost));
 
-J = 1/m * sum(sum(eachCost));
+T1 = Theta1(:, 2:end);
+T2 = Theta2(:, 2:end);
+regularizationCost = lambda/(2*m) * (sum(sum(T1.*T1))+sum(sum(T2.*T2)));
+
+J = predictionCost + regularizationCost;
 
 % -------------------------------------------------------------
 
