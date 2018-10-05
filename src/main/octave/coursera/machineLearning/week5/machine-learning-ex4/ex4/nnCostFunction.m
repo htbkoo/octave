@@ -97,6 +97,13 @@ Theta2_grad = 1/m * d3'*a2;
 d2 = d3*T2.*sigmoidGradient(z2);
 Theta1_grad = 1/m * d2'*a1;
 
+% Added regularization terms
+regCost2 = lambda/m*[zeros(size(T2,1),1) T2];
+Theta2_grad = Theta2_grad + regCost2;
+
+regCost1 = lambda/m*[zeros(size(T1,1),1) T1];
+Theta1_grad = Theta1_grad + regCost1;
+
 
 % -------------------------------------------------------------
 
