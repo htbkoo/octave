@@ -63,6 +63,7 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+% Part 1: Feedforward the neural network
 a1 = [ones(m,1) X]; % a(1) = x adding a(1)0
 
 z2 = a1*Theta1';
@@ -88,6 +89,14 @@ T2 = Theta2(:, 2:end);
 regularizationCost = lambda/(2*m) * (sum(sum(T1.*T1))+sum(sum(T2.*T2)));
 
 J = predictionCost + regularizationCost;
+
+% Part 2: Implement the backpropagation algorithm
+d3 = a3 - yk;
+Theta2_grad = 1/m * d3'*a2;
+
+d2 = d3*T2.*sigmoidGradient(z2);
+Theta1_grad = 1/m * d2'*a1;
+
 
 % -------------------------------------------------------------
 
