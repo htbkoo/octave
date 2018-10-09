@@ -27,8 +27,10 @@ sumOfThetaSquare = sum(thetaWithoutFirst'*thetaWithoutFirst);
 regularizationCost = lambda/(2*m) * sumOfThetaSquare;
 J = predictionCost + regularizationCost;
 
-
-
+gradientTerm=1/m*sum(delta.*X);
+regularizedTerm=lambda/m*theta;
+regularizedTerm(1) = 0;
+grad = gradientTerm + regularizedTerm;
 
 
 
