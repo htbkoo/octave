@@ -19,7 +19,13 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
-
+h = X*theta;
+delta = h-y;
+predictionCost = 1/(2*m) * sum(delta'*delta);
+thetaWithoutFirst = theta(2:end);
+sumOfThetaSquare = sum(thetaWithoutFirst'*thetaWithoutFirst);
+regularizationCost = lambda/(2*m) * sumOfThetaSquare;
+J = predictionCost + regularizationCost;
 
 
 
