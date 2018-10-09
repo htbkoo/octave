@@ -53,7 +53,19 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+for i = 1:m
+  Xi = X(1:i,:);
+  yi = y(1:i);
+  theta = trainLinearReg(Xi, yi, lambda);
 
+  error_train(i) = linearRegCostFunction(Xi, yi, theta, 0);
+  error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+  %h = Xi*theta;
+  %delta = h-yi;
+  %error_train(i) = 1/(2*m)* sum(delta'*delta);
+
+  %error_val(i)
+end
 
 
 
