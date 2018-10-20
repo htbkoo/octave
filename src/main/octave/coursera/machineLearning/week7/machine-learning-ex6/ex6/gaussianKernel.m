@@ -16,10 +16,10 @@ sim = 0;
 %
 %
 
-
-
-
-
+diff = x1-x2;
+numerator=diff'*diff;
+denominator=2*sigma*sigma;
+sim = exp(-numerator/denominator);
 
 % =============================================================
     
