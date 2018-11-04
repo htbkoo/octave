@@ -52,9 +52,11 @@ Theta_grad = delta'*X;
 J_Regularization_term = lambda/2 * sum(sum(Theta.*Theta)) + lambda/2 * sum(sum(X.*X));
 J = J + J_Regularization_term;
 
-
-
-
+% 2.2.4 Regularized gradient
+X_grad_Regularization_term = lambda * X;
+Theta_grad_Regularization_term = lambda * Theta;
+X_grad= X_grad + X_grad_Regularization_term;
+Theta_grad = Theta_grad + Theta_grad_Regularization_term;
 % =============================================================
 
 grad = [X_grad(:); Theta_grad(:)];
