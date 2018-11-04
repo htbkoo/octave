@@ -44,9 +44,9 @@ Theta_grad = zeros(size(Theta));
 delta = (X * Theta' - Y) .* R;
 J = 1/2 * sum( sum (delta.*delta));
 
-
-
-
+% 2.2.2 Collaborative filtering gradient
+X_grad = delta*Theta;
+Theta_grad = delta'*X;
 
 
 
