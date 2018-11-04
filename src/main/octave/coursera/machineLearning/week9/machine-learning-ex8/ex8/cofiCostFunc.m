@@ -48,9 +48,9 @@ J = 1/2 * sum( sum (delta.*delta));
 X_grad = delta*Theta;
 Theta_grad = delta'*X;
 
-
-
-
+% 2.2.3 Regularized cost function
+J_Regularization_term = lambda/2 * sum(sum(Theta.*Theta)) + lambda/2 * sum(sum(X.*X));
+J = J + J_Regularization_term;
 
 
 
