@@ -40,9 +40,9 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
-
-
-
+% 2.2.1 Collaborative filtering cost function
+delta = (X * Theta' - Y) .* R;
+J = 1/2 * sum( sum (delta.*delta));
 
 
 
